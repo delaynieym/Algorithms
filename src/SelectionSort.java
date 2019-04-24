@@ -3,8 +3,7 @@ public class SelectionSort implements ISorter, ISortStats{
 
 	@Override
 	public String getAlgorithm() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Selection Sort";
 	}
 
 	@Override

@@ -1,12 +1,11 @@
 
 public class BubbleSort implements ISorter, ISortStats{
-	private String algorithm = "Bubble Sort";
 	
 
 	@Override
 	public String getAlgorithm() {
 		// TODO Auto-generated method stub
-		return this.algorithm;
+		return "Bubble Sort";
 	}
 
 	@Override
