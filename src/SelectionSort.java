@@ -1,5 +1,5 @@
 
-public class SelectionSort implements ISorter, ISortStats{
+public class SelectionSort extends ISortStats implements ISorter {
 
 	@Override
 	public String getAlgorithm() {
@@ -7,33 +7,25 @@ public class SelectionSort implements ISorter, ISortStats{
 	}
 
 	@Override
-	public int getNumItems() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public ISortStats sort(int[] a) { // TAKEN FROM BUILDING IN JAVA
+		long t = System.nanoTime();
+		for (int i = 0; i < a.length; i++) {
+			int smallest = i; //index of smallest element
+			//finding the smallest element
+			for (int j = i+1; j < a.length; j++) {
+				if (a[j] < a[smallest]) smallest = j;
+				this.setNumComparisons(this.getNumComparisons() + 1);
+			}
 
-	@Override
-	public int getNumComparisons() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+			//swap
+			int temp = a[smallest];
+			a[smallest] = a[i];
+			a[i] = temp;
+			this.setNumMoves(this.getNumMoves() + 1);
 
-	@Override
-	public int getNumMoves() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public long getNumNanoseconds() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public ISortStats sort(int[] a) {
-		// TODO Auto-generated method stub
-		return null;
+		}
+		this.setNumNanoseconds(System.nanoTime() - t);
+		return this;
 	}
 
 }

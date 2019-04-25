@@ -4,43 +4,48 @@
  *
  * @author Joyce
  */
-public interface ISortStats {
+public abstract class ISortStats {
+	private int items;
+	private int comparisons;
+	private int moves;
+	private long nanoseconds;
 
-    /**
-     * Abstract method that returns the name of the sorting algorithm.
-     *
-     * @return String
-     */
-    String getAlgorithm();
+	/**
+	 * Abstract method that returns the name of the sorting algorithm.
+	 *
+	 * @return String
+	 */
+	abstract String getAlgorithm();
 
-    /**
-     * Abstract method that returns the length of the sorted array.
-     *
-     * @return int
-     */
-    int getNumItems();
+	public int getNumItems() {
+		return this.items;
+	}
 
-    /**
-     * Abstract method that returns the number of times that elements of the
-     * array were compared to each other.
-     *
-     * @return int
-     */
-    int getNumComparisons();
+	public int getNumComparisons() {
+		return this.comparisons;
+	}
 
-    /**
-     * Abstract method that returns the number of times that elements of the
-     * array were stored in temporary variables or other sections of the array.
-     *
-     * @return int
-     */
-    int getNumMoves();
+	public int getNumMoves() {
+		return this.moves;
+	}
 
-    /**
-     * Abstract method that returns the amount of nanoseconds it took to sort
-     * the array.
-     *
-     * @return long
-     */
-    long getNumNanoseconds();
+	public long getNumNanoseconds() {
+		return this.nanoseconds;
+	}
+
+	public void setNumItems(int x) {
+		this.items = x;
+	}
+
+	public void setNumComparisons(int x) {
+		this.comparisons = x;
+	}
+
+	public void setNumMoves(int x) {
+		this.moves = x;
+	}
+
+	public void setNumNanoseconds(long x) {
+		this.nanoseconds = x;
+	}
 }

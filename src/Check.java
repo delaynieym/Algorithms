@@ -27,7 +27,7 @@ public class Check {
 		return false; //it was out of order
 	}
 	
-	public static boolean isInOrder(int[] a, boolean x) {
+	public static boolean isInOrder(int[] a, boolean useIterative) {
 		for (int i = 0; i < a.length - 1; i++) {
 			if (a[i] > a[i+1]) return false;
 		}
